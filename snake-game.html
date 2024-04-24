@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snake Game</title>
+<style>
+    #gameCanvas {
+        background-color: black;
+        border: 1px solid #ccc;
+    }
+</style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <script>
+        // Canvas setup
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Snake setup
+        let snake = [{ x: 200, y: 200 }];
+        let dx = 0;
+        let dy = 0;
+        const snakeSize = 20;
+
+        // Food setup
+        let food = { x: 0, y: 0 };
+        spawnFood();
+
+        // Score setup
+        let score = 0;
+
+        // Game loop
+        function main() {
+            clearCanvas();
+            moveSnake();
+            drawSnake();
+            drawFood();
+            drawScore();
+            if (checkCollision()) {
+                resetGame();
+            }
+            setTimeout(main, 100); // Adjust the delay here for slower speed
+        }
+        main();
+
+        // Handle keyboard input
+        document.addEventListener("keydown", changeDirection);
+
+        function changeDirection(event) {
+            const LEFT_KEY = 37;
+            const RIGHT_KEY = 39;
+            const UP_KEY = 38;
+            const DOWN_KEY = 40;
+
+            const keyPressed = event.keyCode;
+
+            const goingUp = dy === -snakeSize;
+            const goingDown = dy === snakeSize;
+            const goingRight = dx === snakeSize;
+            const goingLeft = dx === -snakeSize;
+
+            if (keyPressed === LEFT_KEY && !goingRight) {
+                dx = -snakeSize;
+                dy = 0;
+            }
+
+            if (keyPressed === UP_KEY && !goingDown) {
+                dx = 0;
+                dy = -snakeSize;
+            }
+
+            if (keyPressed === RIGHT_KEY && !goingLeft) {
+                dx = snakeSize;
+                dy = 0;
+            }
+
+            if (keyPressed === DOWN_KEY && !goingUp) {
+                dx = 0;
+                dy = snakeSize;
+            }
+        }
+
+        // Clear canvas function
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Move snake function
+        function moveSnake() {
+            const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+            snake.unshift(head);
+            if (head.x === food.x && head.y === food.y) {
+                score += 10;
+                spawnFood();
+            } else {
+                snake.pop();
+            }
+        }
+
+        // Draw snake function
+        function drawSnake() {
+            snake.forEach(segment => {
+                ctx.fillStyle = "white";
+                ctx.fillRect(segment.x, segment.y, snakeSize, snakeSize);
+            });
+        }
+
+        // Spawn food function
+        function spawnFood() {
+            food.x = Math.floor(Math.random() * (canvas.width / snakeSize)) * snakeSize;
+            food.y = Math.floor(Math.random() * (canvas.height / snakeSize)) * snakeSize;
+        }
+
+        // Draw food function
+        function drawFood() {
+            ctx.fillStyle = "red";
+            ctx.fillRect(food.x, food.y, snakeSize, snakeSize);
+        }
+
+        // Draw score function
+        function drawScore() {
+            ctx.fillStyle = "white";
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 10, 30);
+        }
+
+        // Check collision function
+        function checkCollision() {
+            const head = snake[0];
+            return (
+                head.x < 0 ||
+                head.x >= canvas.width ||
+                head.y < 0 ||
+                head.y >= canvas.height ||
+                snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)
+            );
+        }
+
+        // Reset game function
+        function resetGame() {
+            snake = [{ x: 200, y: 200 }];
+            dx = 0;
+            dy = 0;
+            score = 0;
+            spawnFood();
+        }
+    </script>
+</body>
+</html>

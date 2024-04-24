@@ -1,0 +1,21 @@
+Licenza MIT
+
+Diritti d'autore (c) 2024 Gino Work Enviroment System
+
+Viene concessa l'autorizzazione, gratuitamente, a chiunque ottenga una copia
+del presente software e dei file di documentazione associati (il "Software"), di trattare
+il Software senza restrizioni, incluso, senza limitazione, il diritto
+di utilizzarlo, copiarlo, modificare, unirlo, pubblicarlo, distribuirlo, concedere in sublicenza e/o venderlo,
+così come di consentire alle persone a cui il Software è
+fornito di farlo, a condizione che vengano rispettate le seguenti condizioni:
+
+Il presente avviso di copyright e questa autorizzazione saranno inclusi in tutte le
+copie o parti sostanziali del Software.
+
+IL SOFTWARE È FORNITO "COSÌ COM'È", SENZA GARANZIA DI ALCUN TIPO, ESPRESSA O
+IMPLICITA, INCLUSE, MA NON LIMITATE A GARANZIE DI COMMERCIABILITÀ,
+IDONEITÀ PER UN PARTICOLARE SCOPO E NON VIOLAZIONE. IN NESSUN CASO GLI AUTORI O I TITOLARI
+DEL COPYRIGHT SARANNO RESPONSABILI PER QUALSIASI RECLAMO, DANNI O ALTRI
+RESPONSABILITÀ, CHE SIANO IN UN'AZIONE DI CONTRATTO, TORTO O ALTRO,
+DERIVANTI DA, FUORI O IN CONNESSIONE CON IL SOFTWARE O L'USO O ALTRI AFFARI
+NEL SOFTWARE.
