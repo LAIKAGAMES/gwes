@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G.W.E.S New Tab</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+    body {
+      font-family: Ubuntu;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    h2 {
+      color: #333;
+    }
+    h3 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3>Welcome to THE WEB</h3>
+    <h2>TLJP G.W.E.S SEARCH</h2>
+    <h1 id="welcomeMessage">Benvenuto</h1>
+    <script async src="https://cse.google.com/cse.js?cx=a5c6b3ddaf7c242b4">
+    </script>
+    <div class="gcse-search"></div>
+
+    <script>
+        // Otteniamo il nome del browser
+        var browserName = getBrowserName();
+    
+        // Modifichiamo il testo all'interno dell'elemento <h1>
+        document.getElementById("welcomeMessage").innerText = "Benvenuto in " + browserName;
+    
+        // Funzione per ottenere il nome del browser
+        function getBrowserName() {
+          var userAgent = window.navigator.userAgent;
+          var browsers = {
+            chrome: /chrome/i,
+            safari: /safari/i,
+            firefox: /firefox/i,
+            ie: /internet explorer/i,
+            edge: /edge/i,
+            opera: /opera/i,
+            netscape: /netscape/i,
+            uc: /ucbrowser/i
+          };
+    
+          for (var key in browsers) {
+            if (browsers[key].test(userAgent)) {
+              return key.charAt(0).toUpperCase() + key.slice(1); // Restituisce il nome del browser con la prima lettera maiuscola
+            }
+          }
+    
+          return "Browser sconosciuto";
+        }
+      </script>
+     
+    
+  </div>
+</body>
+</html>
