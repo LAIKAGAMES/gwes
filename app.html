@@ -6,17 +6,18 @@
 
 <title>G.W.E.S</title>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
     body {
             font-family: Ubuntu;
             margin: 0;
             padding: 0;
-            background-color: #fff;
+            background-image: url(https://cdn.pixabay.com/photo/2016/01/09/15/54/background-1130432_1280.jpg);
             color: #000000;
         }
     header{
-        background-image: url(https://cdn.pixabay.com/photo/2017/08/24/03/41/starry-sky-2675322_960_720.jpg);
+        background-image: url(https://cdn.pixabay.com/photo/2020/04/27/17/02/blue-mermaid-scale-5100724_1280.jpg);
         color: #000000;
-        font-family: Ubuntu;
+        font-family: 'Ubuntu';
         text-align: center;
         padding: 10px;
     }
@@ -28,7 +29,7 @@
     }
     a {
         cursor: pointer;
-        font-family: Ubuntu;
+        font-family: 'Ubuntu';
         color: #000000;
         border: 1px #000;
         text-decoration: none;/*Decoration nessuna*/        
@@ -43,7 +44,7 @@
 
 
     .logo-container{
-        background-color: #2a9c08;
+        background-color: #08599c;
         text-align: left;
         border-radius: 8px;
         cursor: default;
@@ -51,7 +52,7 @@
     }
     .presentation-container{
         background-image: url(https://cdn.pixabay.com/photo/2021/08/18/19/23/background-6556394_960_720.jpg);
-        font-family: 'Arial Black';
+        font-family: Ubuntu;
         padding: 1px;
 
 
@@ -66,22 +67,22 @@
         cursor: pointer;
         font-family: 'Ubuntu';
         color: #000000;
-        background-color: #07a837;
+        background-color: #08599c;
         border: none;
         border-radius: 20px;
     }
     .title{
         font-size: 50px;
-        font-family: Ubuntu;
+        font-family: 'Ubuntu';
     }
     .semi-title{
         font-size: 25px;
-        font-family: Ubuntu;
+        font-family: 'Ubuntu';
     }
     canvas {
       border: 3px solid black;
       border-radius: 20px;
-      border-color: #2a9c08;
+      border-color: #08599c;
 
     }
 
@@ -91,8 +92,9 @@
             margin-bottom: 10px;
             padding: 5px;
             border: 3px solid black;
-        border-radius: 20px;
-        border-color: #2a9c08;
+            border-radius: 20px;
+            border-color: #08599c;
+            background-image: url(https://cdn.pixabay.com/photo/2016/01/09/15/54/background-1130432_1280.jpg);
         }
     button:hover {
             background-color: #0056b3;
@@ -111,9 +113,11 @@
             padding: 10px;
             margin-bottom: 15px;
             font-size: 18px;
-            border: 1px solid #ccc;
+            border: 1px solid #08599c;
             border-radius: 5px;
             box-sizing: border-box;
+            background-image: url(https://cdn.pixabay.com/photo/2016/01/09/15/54/background-1130432_1280.jpg);
+
         }
     .calculator button {
             width: 48%;
@@ -122,12 +126,12 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            background-color: #4caf50;
+            background-color: #08599c;
             color: #fff;
             transition: background-color 0.3s;
         }
         .calculator button:hover {
-            background-color: #45a049;
+            background-color: #457ba0;
         }
         .calculator button.clear {
             background-color: #f44336;
@@ -141,7 +145,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #0bc224; /* Colore di sfondo */
+        background-color: #10b1e2; /* Colore di sfondo */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -152,7 +156,7 @@
     
     /* Stile per il testo dell'animazione */
     #testo-animazione {
-        color: rgb(9, 65, 139);
+        color: #08599c;
         font-size: 48px;
         text-align: center;
     }
@@ -160,6 +164,10 @@
     /* Animazione per far apparire l'animazione di benvenuto */
     #animazione-benvenuto.appear {
         opacity: 1;
+    }
+    .input {
+        background-image: url(https://cdn.pixabay.com/photo/2016/01/09/15/54/background-1130432_1280.jpg);
+        border: 1px solid #08599c;
     }
 </style>
 
@@ -189,7 +197,7 @@
     </header>
     <div class="overlay" id="overlay"></div>
     <div class="popup" id="popup">
-        <p>For a better experience, use a Computer. If you are on Linux use <a href="app-linux.html">THE LINUX VERSION</a></p>
+        <p>For a better experience, use a Computer. Mobile version coming soon</p>
          <button onclick="closePopup()">Close</button>
     </div>
 
@@ -365,7 +373,7 @@
 <!-- Form per inserire i dettagli del lavoro -->
 <form id="jobForm">
   <label for="jobTitle">Job Title:</label><br>
-  <input type="text" id="jobTitle" name="jobTitle" required><br>
+  <input class="input" type="text" id="jobTitle" name="jobTitle" required><br>
   <label for="jobDescription">Job Description:</label><br>
   <textarea id="jobDescription" name="jobDescription" required></textarea><br>
   <button type="submit">Publish</button>
