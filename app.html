@@ -376,7 +376,7 @@
 <script>
   // Funzione per gestire l'invio del modulo
   document.getElementById("jobForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita il ricaricamento della pagina
+    // Evita il ricaricamento della pagina
 
     // Ottieni i valori del modulo
     var title = document.getElementById("jobTitle").value;
@@ -406,6 +406,7 @@
     <div class="calculator">
         <input type="text" id="display" readonly>
         <button onclick="clearDisplay()" class="clear">C</button>
+        <button onclick="calculateResult()">=</button>
         <button onclick="appendToDisplay('1')">1</button>
         <button onclick="appendToDisplay('2')">2</button>
         <button onclick="appendToDisplay('3')">3</button>
@@ -416,11 +417,10 @@
         <button onclick="appendToDisplay('8')">8</button>
         <button onclick="appendToDisplay('9')">9</button>
         <button onclick="appendToDisplay('0')">0</button>
-        <button onclick="calculateResult()">=</button>
-        <button onclick="appendToDisplay('/')">:</button>
         <button onclick="appendToDisplay('+')">+</button>
         <button onclick="appendToDisplay('-')">-</button>
-        <button onclick="appendToDisplay('*')">X</button>
+        <button onclick="appendToDisplay('*')">×</button>
+        <button onclick="appendToDisplay('/')">÷</button>
     </div>
 
     <script>
