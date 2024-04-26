@@ -87,7 +87,16 @@
       border-color: #08599c;
 
     }
-
+    input {
+            width: 100%;
+            height: 15px;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 3px solid black;
+            border-radius: 20px;
+            border-color: #08599c;
+            font-family: Ubuntu;
+    }
     textarea {
             width: 100%;
             height: 300px;
@@ -131,6 +140,7 @@
             background-color: #08599c;
             color: #fff;
             transition: background-color 0.3s;
+    
         }
         .calculator button:hover {
             background-color: #457ba0;
@@ -299,52 +309,29 @@
             // Aggiorna l'orario all'avvio della pagina
             aggiornaOrario();
           </script>
-          <h1 class="semi-title"><span id="sistema-operativo"></span></h1>
-          <script>
-            var sistemaOperativoElement = document.getElementById('sistema-operativo');
-        
-            function rilevaSistemaOperativo() {
-              var userAgent = navigator.userAgent.toLowerCase();
-              var sistemaOperativo = "Sconosciuto";
-        
-              if (userAgent.indexOf("windows") != -1) {
-                sistemaOperativo = "Windows";
-                // Per ottenere la versione di Windows
-                var versioneWindows = /windows\snt\s([\d.]+)/.exec(userAgent);
-                if (versioneWindows) {
-                  sistemaOperativo += " " + versioneWindows[1];
+          <h1 id="browserInfo"></h1>
+            <script>
+                var userAgent = navigator.userAgent;
+                var browserName = "";
+                
+                if(userAgent.indexOf("Firefox") > -1){
+                    browserName = "Firefox";
+                } else if(userAgent.indexOf("Opera") > -1 || userAgent.indexOf("OPR") > -1){
+                    browserName = "Opera";
+                } else if(userAgent.indexOf("Trident") > -1){
+                    browserName = "Internet Explorer";
+                } else if(userAgent.indexOf("Edge") > -1){
+                    browserName = "Edge";
+                } else if(userAgent.indexOf("Chrome") > -1){
+                    browserName = "Chrome";
+                } else if(userAgent.indexOf("Safari") > -1){
+                    browserName = "Safari";
+                } else {
+                    browserName = "sconosciuto";
                 }
-              } else if (userAgent.indexOf("mac") != -1) {
-                sistemaOperativo = "Mac OS";
-                // Per ottenere la versione di macOS
-                var versioneMacOS = /mac os x\s([\d_.]+)/.exec(userAgent);
-                if (versioneMacOS) {
-                  sistemaOperativo += " " + versioneMacOS[1].replace(/_/g, ".");
-                }
-              } else if (userAgent.indexOf("linux") != -1) {
-                sistemaOperativo = "Linux";
-              } else if (userAgent.indexOf("android") != -1) {
-                sistemaOperativo = "Android";
-                // Per ottenere la versione di Android
-                var versioneAndroid = /android\s([\d.]+)/.exec(userAgent);
-                if (versioneAndroid) {
-                  sistemaOperativo += " " + versioneAndroid[1];
-                }
-              } else if (userAgent.indexOf("ios") != -1) {
-                sistemaOperativo = "iOS";
-                // Per ottenere la versione di iOS
-                var versioneiOS = /os\s([\d_]+)/.exec(userAgent);
-                if (versioneiOS) {
-                  sistemaOperativo += " " + versioneiOS[1].replace(/_/g, ".");
-                }
-              }
-        
-              sistemaOperativoElement.textContent = sistemaOperativo;
-            }
-        
-            // Esegui la funzione al caricamento della pagina
-            rilevaSistemaOperativo();
-          </script>
+                
+                document.getElementById("browserInfo").innerHTML = browserName + "</strong>";
+            </script>
     <hr>
     <h1 class="semi-title">Search Engine</h1>
     <p>TLJP SEARCH</p>
