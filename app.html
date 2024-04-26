@@ -14,6 +14,7 @@
             padding: 0;
             background-color: #fff;
             color: #000000;
+            text-align: center;
         }
     header{
         background-image: url(https://cdn.pixabay.com/photo/2020/04/27/17/02/blue-mermaid-scale-5100724_1280.jpg);
@@ -46,8 +47,8 @@
 
     .logo-container{
         background-color: #08599c;
-        text-align: left;
-        border-radius: 8px;
+        text-align: center;
+        border-radius: 20px;
         cursor: default;
         
     }
@@ -100,7 +101,7 @@
     button:hover {
             background-color: #0056b3;
         }
-    calculator {
+    .calculator {
             width: 300px;
             margin: 50px auto;
             padding: 20px;
@@ -268,7 +269,7 @@
     };
 </script>
 
-        <h1 class="title">&nbsp;<time id="orario" datetime=""></time></h1>
+        <h1 class="title"><time id="orario" datetime=""></time></h1>
         <script>
             function aggiornaOrario() {
               var orarioElement = document.getElementById('orario');
@@ -298,7 +299,7 @@
             // Aggiorna l'orario all'avvio della pagina
             aggiornaOrario();
           </script>
-          <h1 class="semi-title">&nbsp;<span id="sistema-operativo"></span></h1>
+          <h1 class="semi-title"><span id="sistema-operativo"></span></h1>
           <script>
             var sistemaOperativoElement = document.getElementById('sistema-operativo');
         
@@ -345,13 +346,13 @@
             rilevaSistemaOperativo();
           </script>
     <hr>
-    <h1 class="semi-title">&nbsp;Search Engine</h1>
-    <p>&nbsp;&nbsp;TLJP SEARCH</p>
+    <h1 class="semi-title">Search Engine</h1>
+    <p>TLJP SEARCH</p>
     <script async src="https://cse.google.com/cse.js?cx=a5c6b3ddaf7c242b4">
     </script>
     <div class="gcse-search"></div>
     <hr>
-    <h1 class="semi-title">&nbsp;Notes</h1>
+    <h1 class="semi-title">Notes</h1>
     <textarea id="noteInput" placeholder="type here"></textarea>
     <button onclick="saveNote()">Save</button>
     <div id="noteList"></div>
@@ -371,7 +372,7 @@
     </script>
     <hr>
 
-    <h1 class="semi-title">&nbsp;Jobs</h1>
+    <h1 class="semi-title">Jobs</h1>
 <!-- Form per inserire i dettagli del lavoro -->
 <form id="jobForm">
   <label for="jobTitle">Job Title:</label><br>
@@ -414,25 +415,25 @@
   });
 </script>
 
-    <h1 class="semi-title">&nbsp;Calculator</h1>
+    <h1 class="semi-title">Calculator</h1>
     <div class="calculator">
         <input type="text" id="display" readonly>
         <button onclick="clearDisplay()" class="clear">C</button>
         <button onclick="appendToDisplay('1')">1</button>
         <button onclick="appendToDisplay('2')">2</button>
-        <button onclick="appendToDisplay('+')">+</button>
         <button onclick="appendToDisplay('3')">3</button>
         <button onclick="appendToDisplay('4')">4</button>
         <button onclick="appendToDisplay('5')">5</button>
-        <button onclick="appendToDisplay('-')">-</button>
         <button onclick="appendToDisplay('6')">6</button>
         <button onclick="appendToDisplay('7')">7</button>
         <button onclick="appendToDisplay('8')">8</button>
-        <button onclick="appendToDisplay('*')">*</button>
         <button onclick="appendToDisplay('9')">9</button>
         <button onclick="appendToDisplay('0')">0</button>
         <button onclick="calculateResult()">=</button>
-        <button onclick="appendToDisplay('/')">/</button>
+        <button onclick="appendToDisplay('/')">:</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="appendToDisplay('-')">-</button>
+        <button onclick="appendToDisplay('*')">X</button>
     </div>
 
     <script>
@@ -450,7 +451,7 @@
             document.getElementById('display').value = result;
         }
     </script>
-    <h1 class="semi-title">&nbsp;If you want there are some songs :D</h1>
+    <h1 class="semi-title">If you want there are some songs :D</h1>
     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/20Gt3HNq1fOcqFHn6iFDSZ?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     <h1>If you want some relax</h1>
     <h3><a href="game-index.html">Some Games Here</a></h3>
