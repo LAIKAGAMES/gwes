@@ -22,6 +22,8 @@
         font-family: 'Ubuntu';
         text-align: center;
         padding: 10px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
     }
     nav{
         background-color: #06508d; /* Red */
@@ -71,7 +73,7 @@
         color: #000000;
         background-color: #08599c;
         border: none;
-        border-radius: 20px;
+        border-radius: 50px;
     }
     .title{
         font-size: 50px;
@@ -93,7 +95,7 @@
             margin-bottom: 10px;
             padding: 5px;
             border: 3px solid black;
-            border-radius: 20px;
+            border-radius: 50px;
             border-color: #08599c;
             font-family: Ubuntu;
     }
@@ -103,7 +105,7 @@
             margin-bottom: 10px;
             padding: 5px;
             border: 3px solid black;
-            border-radius: 20px;
+            border-radius: 50px;
             border-color: #08599c;
             font-family: Ubuntu;
         }
@@ -115,7 +117,7 @@
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
-            border-radius: 10px;
+            border-radius: 50px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
       
@@ -135,7 +137,7 @@
             padding: 10px;
             font-size: 18px;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             cursor: pointer;
             background-color: #08599c;
             color: #fff;
@@ -220,6 +222,46 @@
             border: 0px;
 
         }
+
+    .music-player {
+      width: 300px;
+      margin: 50px auto;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 50px;
+      padding: 30px;
+    }
+
+    .player-controls {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .player-controls button {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .volume-slider {
+      width: 80px;
+      margin: 0 10px;
+    }
+
+    .progress-bar {
+      height: 5px;
+      background-color: #ccc;
+      position: relative;
+    }
+
+    .progress {
+      height: 100%;
+      background-color: #08599c;
+      width: 0;
+    }
+
 
 </style>
 
@@ -378,71 +420,71 @@
     </script>
     <div class="gcse-search"></div>
     <hr>
-    <h1>Tasky</h1>
-    <iframe src="https://laikagames.github.io/gwes/Tasky/" style="width:100%; height:500px">
+    <div class="music-player">
+        <div class="player-controls">
+          <button class="play-pause-button">▶</button>
+          <div class="song-info">
+            <span class="song-title">No Way (with Avi Snow)</span>
+            <span class="artist">BIMINI</span>
+          </div>
+          <button class="volume-button">🔊</button>
+          <input type="range" class="volume-slider" min="0" max="100" value="50">
+        </div>
+        <div class="progress-bar">
+          <div class="progress"></div>
+        </div>
+      </div>
+      <audio src="BIMINI - No Way (with Avi Snow) [NCS Release].mp3"></audio>
+      <script>
+        const audio = document.querySelector('audio');
+        const playPauseButton = document.querySelector('.play-pause-button');
+        const volumeButton = document.querySelector('.volume-button');
+        const volumeSlider = document.querySelector('.volume-slider');
+        const progressBar = document.querySelector('.progress');
+        const songTitle = document.querySelector('.song-title');
+        const artist = document.querySelector('.artist');
+    
+        let isPlaying = false;
+    
+        playPauseButton.addEventListener('click', () => {
+          if (isPlaying) {
+            audio.pause();
+            playPauseButton.textContent = '▶';
+          } else {
+            audio.play();
+            playPauseButton.textContent = '⏸';
+          }
+          isPlaying = !isPlaying;
+        });
+    
+        volumeButton.addEventListener('click', () => {
+          audio.muted = !audio.muted;
+          if (audio.muted) {
+            volumeButton.textContent = '🔇';
+          } else {
+            volumeButton.textContent = '🔊';
+          }
+        });
+    
+        volumeSlider.addEventListener('input', () => {
+          audio.volume = volumeSlider.value / 100;
+        });
+    
+        audio.addEventListener('timeupdate', () => {
+          const progress = (audio.currentTime / audio.duration) * 100;
+          progressBar.style.width = `${progress}%`;
+        });
+    
+        audio.addEventListener('loadedmetadata', () => {
+          songTitle.textContent = 'Song Title'; // You can set the song title here
+          artist.textContent = 'Artist'; // You can set the artist name here
+        });
+      </script>
     <hr>
-    <h1 class="semi-title">Notes</h1>
-    <textarea id="noteInput" placeholder="type here"></textarea>
-    <button onclick="saveNote()">Save</button>
-    <div id="noteList"></div>
-    <script>
-        function saveNote() {
-            var noteInput = document.getElementById("noteInput").value.trim(); // Rimuove spazi vuoti all'inizio e alla fine
-            if (noteInput !== "") {
-                var noteList = document.getElementById("noteList");
-                var newNote = document.createElement("p");
-                newNote.textContent = noteInput;
-                noteList.appendChild(newNote);
-                document.getElementById("noteInput").value = ""; // Clear input field after saving
-            } else {
-                alert("Insert text please");
-            }
-        }
-    </script>
+    
+
     <hr>
 
-    <h1 class="semi-title">Jobs</h1>
-<!-- Form per inserire i dettagli del lavoro -->
-<form id="jobForm">
-  <label for="jobTitle">Job Title:</label><br>
-  <input class="input" type="text" id="jobTitle" name="jobTitle" required><br>
-  <label for="jobDescription">Job Description:</label><br>
-  <textarea id="jobDescription" name="jobDescription" required></textarea><br>
-  <button type="submit">Publish</button>
-</form>
-
-<!-- Lista dei lavori pubblicati -->
-<h2>Jobs published</h2>
-<ul id="jobList"></ul>
-
-<script>
-  // Funzione per gestire l'invio del modulo
-  document.getElementById("jobForm").addEventListener("submit", function(event) {
-    // Evita il ricaricamento della pagina
-
-    // Ottieni i valori del modulo
-    var title = document.getElementById("jobTitle").value;
-    var description = document.getElementById("jobDescription").value;
-
-    // Creazione di un nuovo elemento list item per il lavoro pubblicato
-    var li = document.createElement("li");
-    li.textContent = title + ": " + description;
-
-    // Aggiungi il pulsante per eliminare il lavoro
-    var deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-    deleteButton.addEventListener("click", function() {
-      li.remove(); // Rimuovi il lavoro dalla lista
-    });
-    li.appendChild(deleteButton);
-
-    // Aggiungi il nuovo elemento alla lista
-    document.getElementById("jobList").appendChild(li);
-
-    // Resetta il modulo
-    document.getElementById("jobForm").reset();
-  });
-</script>
 
     <h1 class="semi-title">Calculator</h1>
     <div class="calculator">
