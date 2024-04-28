@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasky - Tasks</title>
+    <link rel="icon" href="Design_favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="Design.png">
+    </header>
+
+    <main>
+        <div class="tasks">
+            <section class="task-section">
+                <h2>Add New Task</h2>
+                <form id="taskForm">
+                    <input type="text" id="taskInput" placeholder="Enter a new task" required>
+                    <button type="submit">Add Task</button>
+                </form>
+            </section>
+
+        
+        <section class="task-section">
+            <h2>Task List</h2>
+            <ul id="taskList"></ul>
+        </section>
+    </div>
+    </main>
+
+    <footer>
+        <p>Tasky - Manage your tasks efficiently</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

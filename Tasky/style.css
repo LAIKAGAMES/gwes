@@ -1,0 +1,43 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+body {
+    font-family: Ubuntu;
+    background-color: #d9fffc;
+    text-align: center;
+}
+
+form {
+    margin-bottom: 10px;
+}
+.tasks {
+    text-align: left;
+}
+#taskList {
+    margin-top: 20px;
+    text-align: left;
+}
+header {
+    background-color: hsl(197, 35%, 37%);
+    border-radius: 50px;
+    width: 100%;
+    text-align: center;
+}
+header img{
+    width: 20%;
+    height: 20%;
+}
+
+input {
+    background-color: hsl(197, 40%, 86%);
+    border: 0px;
+    border-radius: 5px;
+    font-family: Ubuntu;
+    
+}
+button {
+    background-color: hsl(197, 40%, 86%);
+    border: 0px;
+    border-radius: 5px;
+    font-family: Ubuntu;
+    
+}
