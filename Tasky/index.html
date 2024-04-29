@@ -3,39 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasky - Tasks</title>
-    <link rel="icon" href="Design_favicon.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
+    <title>Tasky - Notes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        </style>
+    <style>
+        body {
+            font-family: Ubuntu;
+            margin: 0;
+            padding: 0;
+            align-items: left;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: left;
+        }
+        textarea {
+            width: 98%;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            text-align: center;
+            font-family: Ubuntu;
+            
+            
+            
+        }
+        .btn-container {
+            text-align: left;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            margin: 0 5px;
+            font-family: Ubuntu;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .note {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+        }
+        .note p {
+            margin: 0;
+            flex: 1;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+        .theContainer {
+            background-color: #115399;
+            padding: 20px;
+            border-bottom-right-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+        .theContainer img {
+            width: 20%;
+            height: 20%;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <img src="Design.png">
-    </header>
-
-    <main>
-        <div class="tasks">
-            <section class="task-section">
-                <form id="taskForm">`
-                    <h2>-Tasks-</h2>
-                    <input type="text" id="taskInput" placeholder="Enter a new task" required>
-                    <button type="submit">Add Task</button>
-                </form>
-            </section>
-
-        
-        <section class="task-section">
-            <h2>Task List</h2>
-            <ul id="taskList"></ul>
-        </section>
+    <div class="theContainer">
+        <img src="Design.png" alt="Logo">
+        <h1>Notes</h1>
+        <textarea id="noteInput" placeholder="Inserisci la tua nota..."></textarea>
+        <div class="btn-container">
+            <hr>
+            <button onclick="addNote()">Aggiungi Nota</button>
+            <hr>
+        </div>
+        <h1>Your notes are here :D</h1>
+        <div id="noteList"></div>
     </div>
-    </main>
 
-    <footer>
-        <p>Tasky - Manage your tasks efficiently - A G.W.E.S service</p>
-        <p>&copy;2024 Tasky</p>
-        <p>Return to <a href="https://laikagames.github.io/gwes/">Home</a> or <a href="https://laikagames.github.io/gwes/app.html#gsc.tab=0">G.W.E.S</a></p>
-    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+            savedNotes.forEach(function(noteText) {
+                addNoteToDOM(noteText);
+            });
+        });
 
-    <script src="script.js"></script>
+        function addNote() {
+            var noteInput = document.getElementById('noteInput');
+            var noteText = noteInput.value.trim();
+
+            if (noteText !== '') {
+                addNoteToDOM(noteText);
+
+                var savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+                savedNotes.push(noteText);
+                localStorage.setItem('notes', JSON.stringify(savedNotes));
+
+                noteInput.value = '';
+            } else {
+                alert('Inserisci una nota prima di aggiungerla.');
+            }
+        }
+
+        function addNoteToDOM(noteText) {
+            var noteList = document.getElementById('noteList');
+            var noteDiv = document.createElement('div');
+            noteDiv.classList.add('note');
+            var paragraph = document.createElement('p');
+            paragraph.textContent = noteText;
+            var deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Elimina';
+            deleteBtn.classList.add('delete-btn');
+            deleteBtn.onclick = function() {
+                noteList.removeChild(noteDiv);
+                var savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+                var index = savedNotes.indexOf(noteText);
+                if (index !== -1) {
+                    savedNotes.splice(index, 1);
+                    localStorage.setItem('notes', JSON.stringify(savedNotes));
+                }
+            };
+            noteDiv.appendChild(paragraph);
+            noteDiv.appendChild(deleteBtn);
+            noteList.appendChild(noteDiv);
+        }
+    </script>
 </body>
 </html>

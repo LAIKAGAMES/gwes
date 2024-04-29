@@ -153,6 +153,24 @@
         .calculator button.clear:hover {
             background-color: #d32f2f;
         }
+
+        .calculator1 button {
+            width: 48%;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background-color: #1f80cf;
+            color: #fff;
+            transition: background-color 0.3s;
+    
+        }
+        .calculator1 button:hover {
+            background-color: #457ba0;
+        }
+        
+        
         #animazione-benvenuto {
         position: fixed;
         top: 0;
@@ -490,7 +508,7 @@
     <div class="calculator">
         <input type="text" id="display" readonly>
         <button onclick="clearDisplay()" class="clear">C</button>
-        <button onclick="calculateResult()">=</button>
+        <button onclick="calculateResult()" class="calculator1">=</button>
         <button onclick="appendToDisplay('1')">1</button>
         <button onclick="appendToDisplay('2')">2</button>
         <button onclick="appendToDisplay('3')">3</button>
@@ -501,10 +519,10 @@
         <button onclick="appendToDisplay('8')">8</button>
         <button onclick="appendToDisplay('9')">9</button>
         <button onclick="appendToDisplay('0')">0</button>
-        <button onclick="appendToDisplay('+')">+</button>
-        <button onclick="appendToDisplay('-')">-</button>
-        <button onclick="appendToDisplay('*')">×</button>
-        <button onclick="appendToDisplay('/')">÷</button>
+        <button onclick="appendToDisplay('+')" class="calculator1">+</button>
+        <button onclick="appendToDisplay('-')" class="calculator1">-</button>
+        <button onclick="appendToDisplay('*')" class="calculator1">×</button>
+        <button onclick="appendToDisplay('/')" class="calculator1">÷</button>
     </div>
 
     <script>
