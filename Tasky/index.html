@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasky - Notes</title>
+    <link rel="icon" href="Design_favicon.png" type="image/png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
         </style>
@@ -92,10 +93,10 @@
     <div class="theContainer">
         <img src="Design.png" alt="Logo">
         <h1>Notes</h1>
-        <textarea id="noteInput" placeholder="Inserisci la tua nota..."></textarea>
+        <textarea id="noteInput" placeholder="Write your note"></textarea>
         <div class="btn-container">
             <hr>
-            <button onclick="addNote()">Aggiungi Nota</button>
+            <button onclick="addNote()">Add Note</button>
             <hr>
         </div>
         <h1>Your notes are here :D</h1>
@@ -123,7 +124,7 @@
 
                 noteInput.value = '';
             } else {
-                alert('Inserisci una nota prima di aggiungerla.');
+                alert('Insert Note.');
             }
         }
 
@@ -150,5 +151,6 @@
             noteList.appendChild(noteDiv);
         }
     </script>
+    <p><a href="https://laikagames.github.io/gwes/app.html#gsc.tab=0">Go to Gwes</a></p>
 </body>
 </html>
